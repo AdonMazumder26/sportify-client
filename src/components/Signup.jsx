@@ -2,12 +2,13 @@ import React, { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const SignUp = () => {
 
 
-
+    const navigate = useNavigate();
 
 
     const { createUser } = useContext(AuthContext);
@@ -47,9 +48,11 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                toast.success("successfully created user");
+                navigate("/");
             })
             .catch(err => {
-                console.log(err);
+                toast.error("error", err.message);
             })
 
 
@@ -62,11 +65,8 @@ const SignUp = () => {
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
-            <div className="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full">
+            <div className="bg-white p-8 rounded-lg shadow-lg max-w-xs md:max-w-sm lg:max-w-md w-full">
                 <h2 className="text-2xl font-bold text-center mb-6">Create an Account</h2>
-
-
-
                 <form onSubmit={handleSignUp} className="space-y-4">
                     {/* Name */}
                     <div>
@@ -142,9 +142,9 @@ const SignUp = () => {
                 {/* Link to login */}
                 <p className="text-center text-sm mt-4">
                     Already have an account?{" "}
-                    <a href="/login" className="text-blue-500 hover:underline">
+                    <Link to={"/auth/login"} className="text-blue-500 hover:underline">
                         Log In
-                    </a>
+                    </Link>
                 </p>
                 {/* Toast Container */}
                 <ToastContainer position="top-right" />

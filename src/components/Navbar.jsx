@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Navbar({ darkMode, toggleTheme }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,9 +40,9 @@ export default function Navbar({ darkMode, toggleTheme }) {
                         >
                             Equipments
                         </a>
-                        <button className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
+                        <Link to={"auth/login"} className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
                             Login
-                        </button>
+                        </Link>
                     </div>
 
                     {/* Mobile Menu Button */}

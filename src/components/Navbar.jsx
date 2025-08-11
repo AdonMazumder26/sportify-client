@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 export default function Navbar({ darkMode, toggleTheme }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { user, logOut } = useContext(AuthContext);
+
 
 
     return (
@@ -40,9 +43,23 @@ export default function Navbar({ darkMode, toggleTheme }) {
                         >
                             Equipments
                         </a>
-                        <Link to={"auth/login"} className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
-                            Login
-                        </Link>
+                        {
+                            user ?
+                                <div className="flex items-center justify-center gap-4">
+                                    <button className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition" onClick={logOut}>Log out</button>
+                                    <div className="w-12 h-12 rounded-full overflow-hidden border-4 shadow-lg hover:scale-105 border-blue-500 ">
+                                        <img
+                                            src={user.photoURL}
+                                            alt="User Profile"
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
+                                </div>
+                                :
+                                <Link to={"auth/login"} className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
+                                    Login
+                                </Link>
+                        }
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -66,7 +83,7 @@ export default function Navbar({ darkMode, toggleTheme }) {
             {/* Mobile Dropdown */}
             {isMenuOpen && (
                 <div
-                    className={`md:hidden px-4 pb-4 space-y-3 ${darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
+                    className={`md:hidden flex flex-col gap-5 px-4 pb-4 space-y-3 ${darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
                         }`}
                 >
                     <a
@@ -81,9 +98,23 @@ export default function Navbar({ darkMode, toggleTheme }) {
                     >
                         Equipments
                     </a>
-                    <button className="w-full px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
-                        Login
-                    </button>
+                    {
+                        user ?
+                            <div className="flex items-center justify-between gap-4">
+                                <button className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition" onClick={logOut}>Log out</button>
+                                <div className="w-12 h-12 rounded-full overflow-hidden border-4 shadow-lg hover:scale-105 border-blue-500 ">
+                                    <img
+                                        src={user.photoURL}
+                                        alt="User Profile"
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                            </div>
+                            :
+                            <Link to={"auth/login"} className="w-full px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
+                                Login
+                            </Link >
+                    }
                 </div>
             )}
         </nav>

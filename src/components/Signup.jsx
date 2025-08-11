@@ -11,7 +11,7 @@ const SignUp = () => {
     const navigate = useNavigate();
 
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
 
 
 
@@ -42,14 +42,18 @@ const SignUp = () => {
             return;
         }
 
-        console.log(name, photo, email, password);
+        // console.log(name, photo, email, password);
 
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                toast.success("successfully created user");
-                navigate("/");
+                updateUserProfile({ displayName: name, photoURL: photo })
+                    .then(() => {
+                        navigate("/");
+                        toast.success("successfully created user");
+                    })
+                    .catch(err => toast.error(err));
             })
             .catch(err => {
                 toast.error("error", err.message);

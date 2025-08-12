@@ -8,6 +8,10 @@ import AuthLayout from './layouts/AuthLayout.jsx'
 import Signup from './components/Signup.jsx'
 import Login from './components/Login.jsx'
 import AuthProvider from './provider/AuthProvider.jsx'
+import PrivateRoute from './router/PrivateRoute.jsx'
+import AddEquipment from './pages/AddEquipment.jsx'
+
+
 
 const router = createBrowserRouter([
   {
@@ -17,6 +21,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>
+      },
+      {
+        path: "/addEquipment",
+        element:
+          <PrivateRoute>
+            <AddEquipment></AddEquipment>
+          </PrivateRoute>
+
       }
     ]
   },

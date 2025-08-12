@@ -13,7 +13,7 @@ const MainLayout = () => {
     return (
         <div>
             <Navbar darkMode={darkMode} toggleTheme={toggleTheme}></Navbar>
-            <Outlet></Outlet>
+            <Outlet context={{ darkMode }}></Outlet>
             <Footer darkMode={darkMode}></Footer>
         </div>
     );

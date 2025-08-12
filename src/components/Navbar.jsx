@@ -23,26 +23,59 @@ export default function Navbar({ darkMode, toggleTheme }) {
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex items-center space-x-6">
-                        {/* Theme toggle button before Home */}
-                        <button
-                            onClick={toggleTheme}
-                            className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-                        >
-                            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-                        </button>
+                        {
+                            user ?
+                                <div className=" items-center space-x-6 flex justify-center ">
+                                    {/* Theme toggle button before Home */}
+                                    <button
+                                        onClick={toggleTheme}
+                                        className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+                                    >
+                                        {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+                                    </button>
 
-                        <a
-                            href="#home"
-                            className="hover:text-green-500 transition-colors duration-300"
-                        >
-                            Home
-                        </a>
-                        <a
-                            href="#equipment"
-                            className="hover:text-green-500 transition-colors duration-300"
-                        >
-                            Equipments
-                        </a>
+                                    <Link
+                                        to={"/"}
+                                        className="hover:text-green-500 transition-colors duration-300"
+                                    >
+                                        Home
+                                    </Link>
+                                    <a
+                                        href="#equipment"
+                                        className="hover:text-green-500 transition-colors duration-300"
+                                    >
+                                        Equipments
+                                    </a>
+                                    <Link to={"/addEquipment"}
+                                        className="hover:text-green-500 transition-colors duration-300 mr-4"
+                                    >
+                                        Add Equipment
+                                    </Link >
+                                </div>
+                                :
+                                <div className=" items-center space-x-6 ">
+                                    {/* Theme toggle button before Home */}
+                                    <button
+                                        onClick={toggleTheme}
+                                        className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+                                    >
+                                        {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+                                    </button>
+
+                                    <Link
+                                        to={"/"}
+                                        className="hover:text-green-500 transition-colors duration-300"
+                                    >
+                                        Home
+                                    </Link>
+                                    <a
+                                        href="#equipment"
+                                        className="hover:text-green-500 transition-colors duration-300"
+                                    >
+                                        Equipments
+                                    </a>
+                                </div>
+                        }
                         {
                             user ?
                                 <div className="flex items-center justify-center gap-4">
@@ -61,6 +94,7 @@ export default function Navbar({ darkMode, toggleTheme }) {
                                 </Link>
                         }
                     </div>
+
 
                     {/* Mobile Menu Button */}
                     <div className="md:hidden flex items-center space-x-2">
@@ -86,18 +120,45 @@ export default function Navbar({ darkMode, toggleTheme }) {
                     className={`md:hidden flex flex-col gap-5 px-4 pb-4 space-y-3 ${darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
                         }`}
                 >
-                    <a
-                        href="#home"
-                        className="block hover:text-green-500 transition-colors duration-300"
-                    >
-                        Home
-                    </a>
-                    <a
-                        href="#equipment"
-                        className="block hover:text-green-500 transition-colors duration-300"
-                    >
-                        Equipments
-                    </a>
+                    {
+                        user ?
+                            <div className="space-y-3">
+                                <a
+                                    href="#home"
+                                    className="block hover:text-green-500 transition-colors duration-300"
+                                >
+                                    Home
+                                </a>
+                                <a
+                                    href="#equipment"
+                                    className="block hover:text-green-500 transition-colors duration-300"
+                                >
+                                    Equipments
+                                </a>
+                                <Link
+                                    to={"/addEquipment"}
+                                    className="block hover:text-green-500 transition-colors duration-300"
+                                >
+                                    Add Equipment
+                                </Link>
+                            </div>
+                            :
+                            <div>
+                                <a
+                                    href="#home"
+                                    className="block hover:text-green-500 transition-colors duration-300"
+                                >
+                                    Home
+                                </a>
+                                <a
+                                    href="#equipment"
+                                    className="block hover:text-green-500 transition-colors duration-300"
+                                >
+                                    Equipments
+                                </a>
+                            </div>
+
+                    }
                     {
                         user ?
                             <div className="flex items-center justify-between gap-4">

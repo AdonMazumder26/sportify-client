@@ -12,17 +12,21 @@ import React from 'react';
 const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
 
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     const logIn = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     const logOut = () => {
+        setLoading(true);
         return signOut(auth);
     }
 
@@ -31,13 +35,13 @@ const AuthProvider = ({ children }) => {
     }
 
     const authInfo = {
-        user, setUser, createUser, logIn, logOut, updateUserProfile
+        user, setUser, createUser, logIn, logOut, updateUserProfile, loading, setLoading
     }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUSer) => {
             setUser(currentUSer);
-
+            setLoading(false);
         })
         return () => {
             unsubscribe();

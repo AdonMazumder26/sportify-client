@@ -10,6 +10,7 @@ const MainLayout = () => {
         setDarkMode(!darkMode);
         document.documentElement.classList.toggle("dark");
     };
+
     return (
         <div>
             <Navbar darkMode={darkMode} toggleTheme={toggleTheme}></Navbar>

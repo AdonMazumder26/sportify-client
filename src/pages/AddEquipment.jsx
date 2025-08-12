@@ -13,7 +13,7 @@ export default function AddEquipment() {
 
         const form = e.target;
         const photo = form.photo.value;
-        const name = form.name.value;
+        const itemName = form.itemName.value;
         const category = form.category.value;
         const price = form.price.value;
         const rating = form.rating.value;
@@ -21,7 +21,9 @@ export default function AddEquipment() {
         const process = form.process.value;
         const stock = form.stock.value;
         const description = form.description.value;
-        const newEquipment = { photo, name, category, price, rating, customization, process, stock, description };
+        const email = form.email.value;
+        const name = form.name.value;
+        const newEquipment = { itemName, photo, category, price, rating, customization, process, stock, description, email, name };
         console.log(newEquipment);
 
         fetch("http://localhost:5000/equipment", {
@@ -72,7 +74,7 @@ export default function AddEquipment() {
                     {/* Item Name */}
                     <input
                         type="text"
-                        name="name"
+                        name="itemName"
                         placeholder="Item Name"
                         defaultValue=""
                         className={`p-3 rounded border w-full ${darkMode
@@ -160,6 +162,7 @@ export default function AddEquipment() {
                     <input
                         type="email"
                         placeholder="User Email"
+                        name="email"
                         readOnly
                         defaultValue={user.email}
                         className={`p-3 rounded border w-full cursor-not-allowed ${darkMode
@@ -173,6 +176,7 @@ export default function AddEquipment() {
                         type="text"
                         placeholder="User Name"
                         readOnly
+                        name="name"
                         defaultValue={user.displayName}
                         className={`p-3 rounded border w-full cursor-not-allowed ${darkMode
                             ? "bg-gray-600 border-gray-500 text-gray-300"

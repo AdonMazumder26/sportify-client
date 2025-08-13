@@ -58,7 +58,7 @@ export default function Navbar({ darkMode, toggleTheme }) {
                                     </Link >
                                 </div>
                                 :
-                                <div className=" items-center space-x-6 ">
+                                <div className=" items-center flex space-x-6 ">
                                     {/* Theme toggle button before Home */}
                                     <button
                                         onClick={toggleTheme}
@@ -128,12 +128,12 @@ export default function Navbar({ darkMode, toggleTheme }) {
                     {
                         user ?
                             <div className="space-y-3">
-                                <a
-                                    href="#home"
+                                <Link
+                                    to={"/"}
                                     className="block hover:text-green-500 transition-colors duration-300"
                                 >
                                     Home
-                                </a>
+                                </Link>
                                 <Link to={"/allEquipment"}
                                     className="block hover:text-green-500 transition-colors duration-300"
                                 >
@@ -152,13 +152,13 @@ export default function Navbar({ darkMode, toggleTheme }) {
                                 </Link>
                             </div>
                             :
-                            <div>
-                                <a
-                                    href="#home"
+                            <div className="flex flex-col gap-3">
+                                <Link
+                                    to={"/"}
                                     className="block hover:text-green-500 transition-colors duration-300"
                                 >
                                     Home
-                                </a>
+                                </Link>
                                 <Link to={"/allEquipment"}
 
                                     className="block hover:text-green-500 transition-colors duration-300"
@@ -181,9 +181,11 @@ export default function Navbar({ darkMode, toggleTheme }) {
                                 </div>
                             </div>
                             :
-                            <Link to={"auth/login"} className="w-full px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
-                                Login
-                            </Link >
+                            <div>
+                                <Link to={"auth/login"} className="w-20 h-10 px-4 py-2 text-center bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
+                                    Login
+                                </Link >
+                            </div>
                     }
                 </div>
             )}

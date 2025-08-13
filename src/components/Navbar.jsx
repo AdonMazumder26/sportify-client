@@ -40,12 +40,12 @@ export default function Navbar({ darkMode, toggleTheme }) {
                                     >
                                         Home
                                     </Link>
-                                    <a
-                                        href="#equipment"
+                                    <Link to={"/allEquipment"}
+
                                         className="hover:text-green-500 transition-colors duration-300"
                                     >
-                                        Equipments
-                                    </a>
+                                        All Equipments
+                                    </Link>
                                     <Link to={"/addEquipment"}
                                         className="hover:text-green-500 transition-colors duration-300 mr-4"
                                     >
@@ -68,12 +68,12 @@ export default function Navbar({ darkMode, toggleTheme }) {
                                     >
                                         Home
                                     </Link>
-                                    <a
-                                        href="#equipment"
+                                    <Link to={"/allEquipment"}
+
                                         className="hover:text-green-500 transition-colors duration-300"
                                     >
-                                        Equipments
-                                    </a>
+                                        All Equipments
+                                    </Link>
                                 </div>
                         }
                         {
@@ -129,12 +129,11 @@ export default function Navbar({ darkMode, toggleTheme }) {
                                 >
                                     Home
                                 </a>
-                                <a
-                                    href="#equipment"
+                                <Link to={"/allEquipment"}
                                     className="block hover:text-green-500 transition-colors duration-300"
                                 >
-                                    Equipments
-                                </a>
+                                    All Equipments
+                                </Link>
                                 <Link
                                     to={"/addEquipment"}
                                     className="block hover:text-green-500 transition-colors duration-300"
@@ -150,12 +149,12 @@ export default function Navbar({ darkMode, toggleTheme }) {
                                 >
                                     Home
                                 </a>
-                                <a
-                                    href="#equipment"
+                                <Link to={"/allEquipment"}
+
                                     className="block hover:text-green-500 transition-colors duration-300"
                                 >
-                                    Equipments
-                                </a>
+                                    All Equipments
+                                </Link>
                             </div>
 
                     }

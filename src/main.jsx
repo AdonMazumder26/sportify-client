@@ -10,6 +10,7 @@ import Login from './components/Login.jsx'
 import AuthProvider from './provider/AuthProvider.jsx'
 import PrivateRoute from './router/PrivateRoute.jsx'
 import AddEquipment from './pages/AddEquipment.jsx'
+import AllEquipments from './pages/AllEquipments.jsx'
 
 
 
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
             <AddEquipment></AddEquipment>
           </PrivateRoute>
 
+      },
+      {
+        path: "/allEquipment",
+        element: <AllEquipments></AllEquipments>,
+        loader: () => fetch("http://localhost:5000/equipment")
       }
     ]
   },

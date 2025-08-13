@@ -12,7 +12,7 @@ const Home = () => {
             <section className='banner'>
                 <Banner></Banner>
             </section>
-            <section>
+            <section >
                 <Equipments loadedEquipments={loadedEquipments} darkMode={darkMode}></Equipments>
             </section>
         </div>

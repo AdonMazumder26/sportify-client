@@ -3,7 +3,7 @@ import React from "react";
 const Equipment = ({ equipment, darkMode }) => {
     return (
         <div
-            className={`shadow-lg rounded-lg overflow-hidden flex flex-col transition-colors ${darkMode ? "bg-gray-800 text-white" : "bg-white text-gray-800"
+            className={`shadow-lg rounded-lg  overflow-hidden flex flex-col transition-colors ${darkMode ? "bg-gray-800 text-white" : "bg-white text-gray-800"
                 }`}
         >
             {equipment.photo && (

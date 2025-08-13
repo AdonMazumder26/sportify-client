@@ -98,7 +98,7 @@ export default function AllEquipments() {
                                     ${item.price}
                                 </td>
                                 <td className="px-4 py-3 text-center">
-                                    <Link to={`/equipment/${item._id}`}>
+                                    <Link to={`/details/${item._id}`}>
                                         <Eye
                                             className={`inline-block transition-colors ${darkMode
                                                 ? "text-gray-300 hover:text-blue-400"

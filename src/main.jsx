@@ -11,6 +11,7 @@ import AuthProvider from './provider/AuthProvider.jsx'
 import PrivateRoute from './router/PrivateRoute.jsx'
 import AddEquipment from './pages/AddEquipment.jsx'
 import AllEquipments from './pages/AllEquipments.jsx'
+import Details from './pages/Details.jsx'
 
 
 
@@ -36,6 +37,14 @@ const router = createBrowserRouter([
         path: "/allEquipment",
         element: <AllEquipments></AllEquipments>,
         loader: () => fetch("http://localhost:5000/equipment")
+      },
+      {
+        path: "/details/:id",
+        element:
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/equipment/${params.id}`)
       }
     ]
   },

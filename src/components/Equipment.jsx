@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Equipment = ({ equipment, darkMode }) => {
     return (
@@ -27,12 +28,12 @@ const Equipment = ({ equipment, darkMode }) => {
                     Price: ${equipment.price}
                 </p>
                 <p className="text-sm mt-1">Stock: {equipment.stock}</p>
-                <button
+                <Link to={`/details/${equipment._id}`}
 
                     className="mt-4 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors"
                 >
                     View Details
-                </button>
+                </Link>
             </div>
         </div>
     );

@@ -46,6 +46,11 @@ export default function Navbar({ darkMode, toggleTheme }) {
                                     >
                                         All Equipments
                                     </Link>
+                                    <Link to={`/myEquipment/${user.email}`}
+                                        className="hover:text-green-500 transition-colors duration-300 mr-4"
+                                    >
+                                        My Equipments
+                                    </Link>
                                     <Link to={"/addEquipment"}
                                         className="hover:text-green-500 transition-colors duration-300 mr-4"
                                     >
@@ -133,6 +138,11 @@ export default function Navbar({ darkMode, toggleTheme }) {
                                     className="block hover:text-green-500 transition-colors duration-300"
                                 >
                                     All Equipments
+                                </Link>
+                                <Link to={`/myEquipment/${user.email}`}
+                                    className="block hover:text-green-500 transition-colors duration-300"
+                                >
+                                    My Equipments
                                 </Link>
                                 <Link
                                     to={"/addEquipment"}

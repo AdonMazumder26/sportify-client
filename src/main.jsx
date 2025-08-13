@@ -12,6 +12,7 @@ import PrivateRoute from './router/PrivateRoute.jsx'
 import AddEquipment from './pages/AddEquipment.jsx'
 import AllEquipments from './pages/AllEquipments.jsx'
 import Details from './pages/Details.jsx'
+import MyEquipments from './pages/MyEquipments.jsx'
 
 
 
@@ -45,6 +46,14 @@ const router = createBrowserRouter([
             <Details></Details>
           </PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/equipment/${params.id}`)
+      },
+      {
+        path: "/myEquipment/:email",
+        element:
+          <PrivateRoute>
+            <MyEquipments></MyEquipments>
+          </PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/equipment/email/${encodeURIComponent(params.email)}`)
       }
     ]
   },

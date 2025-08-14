@@ -14,6 +14,7 @@ import AllEquipments from './pages/AllEquipments.jsx'
 import Details from './pages/Details.jsx'
 import MyEquipments from './pages/MyEquipments.jsx'
 import UpdateEquipment from './pages/UpdateEquipment.jsx'
+import ErrorPage from './pages/ErrorPage.jsx'
 
 
 
@@ -79,7 +80,12 @@ const router = createBrowserRouter([
         element: <Login></Login>
       }
     ]
+  },
+  {
+    path: "*",
+    element: <ErrorPage></ErrorPage>
   }
+
 ])
 
 createRoot(document.getElementById('root')).render(

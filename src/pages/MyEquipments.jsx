@@ -40,7 +40,7 @@ export default function MyEquipments() {
 
                             <div className="flex justify-between mt-4">
                                 <Link
-                                    to={`/update/${item._id}`}
+                                    to={`/updateEquipment/${item._id}`}
                                     className="flex items-center gap-1 px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-md transition"
                                 >
                                     <Pencil size={16} />

@@ -13,6 +13,7 @@ import AddEquipment from './pages/AddEquipment.jsx'
 import AllEquipments from './pages/AllEquipments.jsx'
 import Details from './pages/Details.jsx'
 import MyEquipments from './pages/MyEquipments.jsx'
+import UpdateEquipment from './pages/UpdateEquipment.jsx'
 
 
 
@@ -54,6 +55,14 @@ const router = createBrowserRouter([
             <MyEquipments></MyEquipments>
           </PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/equipment/email/${encodeURIComponent(params.email)}`)
+      },
+      {
+        path: "/updateEquipment/:id",
+        element:
+          <PrivateRoute>
+            <UpdateEquipment></UpdateEquipment>
+          </PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/equipment/${params.id}`)
       }
     ]
   },
